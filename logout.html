@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="robots" content="noindex, nofollow" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>HOTSPOT ::: LOGOUT</title>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+	
+	<!-- Css/Less Stylesheets -->
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/combined.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-min.js"></script>
+	<script src="js/bootstrap-min.js"></script>
+
+ 	<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'> -->
+	<!-- Match Media polyfill for IE9 -->
+	<!--[if IE 9]> <script src="{$_theme}/scripts/ie/matchMedia.js"></script>  <![endif]-->
+	
+	<script language="JavaScript">
+		<!--
+		$(if advert-pending == 'yes')
+		    var popup = '';
+		    function focusAdvert() {
+			if (window.focus) popup.focus();
+		    }
+		    function openAdvert() {
+			popup = open('$(link-advert)', 'hotspot_advert', '');
+			setTimeout("focusAdvert()", 1000);
+		    }
+		$(endif)
+		    function openLogout() {
+			if (window.name != 'hotspot_status') return true;
+		        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+			window.close();
+			return false;
+		    }
+		//-->
+		</script>
+		
+		<style>
+		/* latin-ext */
+		@font-face {
+		  font-family: 'Sniglet';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: local('Sniglet Regular'), local('Sniglet-Regular'), url(css/sniglet1.woff2) format('woff2');
+		  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family: 'Sniglet';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: local('Sniglet Regular'), local('Sniglet-Regular'), url(css/sniglet2.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+		}
+		body {
+		    font-family: 'Sniglet';font-size: 15px;
+		}
+		</style>
+
+</head>
+<body $(if advert-pending == 'yes') onLoad="openAdvert()"$(endif)>
+	<div class="container">
+		
+		<div class="form-head mb20">
+
+		</div>
+					<center>
+						<img  style="max-width:90%;width:380px;margin-top:5%;" src="img/header.png" />
+					</center>		
+			<center>
+			<div style="max-width:400px;">
+				<div class="panel panel-default">
+				
+					<div style="color:#aaa;margin-left:25px;" class="panel-heading">
+						<a class="login" href="login.html"><b><i style="color:#888;text-shadow:0 1px 0 #aaa;" class="fa fa-unlock-alt" aria-hidden="true"></i> Login &nbsp; </b></a>
+						<a class="hotspot" href="status.html"><i style="color:#888;text-shadow:0 1px 0 #aaa;" class="fa fa-rss" aria-hidden="true"></i> Status &nbsp; </a>
+						<a class="service" href="logout.html"><i style="color:#888;text-shadow:0 1px 0 #aaa;" class="fa fa-cart-plus" aria-hidden="true"></i> Logout &nbsp; </a>
+						$(if login-by)
+						<a class="contact" href="status.html"><i style="color:#888;text-shadow:0 1px 0 #aaa;" class="fa fa-phone" aria-hidden="true"></i> Activate &nbsp; </a>
+						$(else)
+						<a class="contact" href="#aktivasi" data-toggle="modal" data-target="#aktivasi"><i style="color:#888;text-shadow:0 1px 0 #aaa;" class="fa fa-phone" aria-hidden="true"></i> Activate &nbsp; </a>
+						$(endif)			
+					
+					</div>
+					<div class="panel-body" style="min-height:100px;margin:0 auto;">
+						<div class="form-container">
+						
+								<div class="entry-content">
+								
+									<div class="page-title">
+										<h1><p style="font-size:1.4rem;color:orange;text-align:center;font-weight:normal;text-transform: uppercase;">ID [$(username)] telah LOGOUT !!</p></h1>
+									</div>
+									<table>  
+										<tr><td><b>ID Voucher</b> </td><td><b style="text-transform: uppercase;">$(username)</b></td></tr>
+										<tr><td><b>IP Address</b> </td><td><b>$(ip)</b></td></tr>
+										<tr><td><b>MAC Address</b> </td><td><b>$(mac)</b></td></tr>
+										<tr><td><b>Total Data</b> </td><td><b>Up $(bytes-out-nice) ::: Down $(bytes-in-nice)</b></td></tr>
+										<tr><td><b>Connected</b> </td><td><b>$(uptime)</b></td></tr>
+										$(if session-time-left)
+										<tr><td><b>Time remain</b> </td><td><b>$(session-time-left)</b></td></tr>
+										$(endif)
+									</table>
+									</div>
+									<form action="$(link-login-only)" name="login" onSubmit="return openLogin()">
+									<div style="margin-top:20px;" class="btn-group btn-group-justified mb15">
+									<div  class="btn-group">
+										<button class="btn btn-success waves-effect waves-light" type="submit"><i class="fa fa-unlock" aria-hidden="true"></i>BACK TO LOGIN</button>
+									</div>
+								</div>
+                            </form>
+
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </center>
+	</div>
+	<div class="copyright">
+	<center><strong><span style="font-size:11px;color:#bbb;"> &copy; 2018 Created by </span><span class="link-footer"><a href="https://www.itea-solutions.tk/" title=""target="_new" style="font-size:11px; color: #fff">Itea Solutions Internet Services</a></span></strong></center></div>
+</body>
+</html>
